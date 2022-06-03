@@ -81,6 +81,9 @@ def set_recording(recording_value):
 
     recording["active"] = recording_value
 
+    # Strip metadata before reuse. Reduces following request overhead.
+    del recording["_links"]
+
     # Start or stop actual recording session, depending on "recording_value".
     response = direkt.put(RECORDING_SETTINGS_URL, auth=AUTHENTICATION,
                           json=recording)
@@ -150,6 +153,9 @@ def main():
         # Update the activation status for the chosen recording format in your
         # dictionary (other formats analogously).
         encoder["recording"][recording_format]["active"] = True
+
+        # Strip metadata before reuse. Reduces following request overhead.
+        del encoder["_links"]
 
         # Use a PUT request to activate the recording format. If the PUT
         # request is successful it returns the updated resource. Through
