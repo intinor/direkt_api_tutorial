@@ -86,6 +86,9 @@ def main():
     video_input["description"] = ("SDI in 1 - Last description update at " +
                                   current_time)
 
+    # Strip metadata before reuse. Reduces following request overhead.
+    del video_input["_links"]
+
     # Use a PUT request to update the video input description on your unit.
     # If the PUT request is successful it returns the updated resource.
     # Through storing this response in a variable an additional GET request
