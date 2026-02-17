@@ -1,20 +1,22 @@
-"""The "direkt" module provides a best-practice connection mode to your Intinor
-Direkt unit's API. The first connection attempt for each request will be done
-with the "requests" library requiring a valid certificate. If this does not
-succeed the second attempt uses a trust-on-first-use (TOFU) model: the server's
-TLS certificate fingerprint is compared against a local known-hosts store. On
-first contact the user is prompted to accept the fingerprint; on subsequent
-connections it is verified automatically. If a fingerprint mismatch is detected
-the user is prompted to accept the new fingerprint.
+"""The "direkt" module provides a best-practice connection mode to
+your Intinor Direkt unit's API. The first connection attempt for each
+request will be done with the "requests" library requiring a valid
+certificate. If this does not succeed the second attempt uses a
+trust-on-first-use (TOFU) model: the server's TLS certificate
+fingerprint is compared against a local known-hosts store. On first
+contact the user is prompted to accept the fingerprint; on subsequent
+connections it is verified automatically. If a fingerprint mismatch is
+detected the user is prompted to accept the new fingerprint.
 
-While we recommend using the "direkt" module or something similar, alternatives
-are available. An alternative is connecting to Direkt units through ISS explicitly
-using the "requests" library. If you wish instead to directly connect to your unit
-without using the "direkt" module (and not connect through ISS), e.g. under use
-of a third-party certificate, please contact Intinor support.
+While we recommend using the "direkt" module or something similar,
+alternatives are available. An alternative is connecting to Direkt
+units through ISS explicitly using the "requests" library. If you wish
+instead to directly connect to your unit without using the "direkt"
+module (and not connect through ISS), e.g. under use of a third-party
+certificate, please contact Intinor support.
 
-Contact Intinor support for more information on Direkt unit usage and how to
-secure your API infrastructure.
+Contact Intinor support for more information on Direkt unit usage and
+how to secure your API infrastructure.
 """
 
 import hashlib
