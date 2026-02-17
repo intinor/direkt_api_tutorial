@@ -26,12 +26,7 @@ Notes:
 
 The "direkt" module provides a best-practice connection mode to your Intinor
 Direkt unit's API. It wraps the "requests" library with some convenient
-functionality which includes certificate handling.
-
-The cacert.pem file is required to be in the same directory as the
-direkt.py file. It verifies the default certificate that is installed
-on Direkt units.
-
+functionality which includes certificate trust handling.
 
 For more information visit:
 intinor.com
